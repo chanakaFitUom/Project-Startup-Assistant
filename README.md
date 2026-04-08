@@ -9,6 +9,10 @@ Start multiple services in VS Code like Visual Studio startup projects: detect, 
 3. Run `Project Startup: Select Services To Run`.
 4. Click **Start All**.
 
+![ezgif-65ebe56467c8c7d0](https://github.com/user-attachments/assets/6c92aab5-fd97-49c7-a3ef-29fc10795f97)
+
+
+
 ## Why Developers Use It
 
 - No need to remember startup commands for frontend/backend/worker services.
