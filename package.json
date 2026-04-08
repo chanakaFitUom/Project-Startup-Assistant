@@ -2,7 +2,7 @@
   "name": "project-startup-assistant",
   "displayName": "Project Startup Assistant",
   "description": "Developer-friendly startup assistant for multi-service workspaces: identify projects, select services, diagnose issues, and run everything from one VS Code sidebar.",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "publisher": "unique-skills",
   "repository": {
     "type": "git",
