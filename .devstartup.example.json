@@ -1,0 +1,58 @@
+{
+  "activeProfile": "dev",
+  "services": [
+    {
+      "name": "backend",
+      "path": "backend",
+      "command": "npm run dev",
+      "healthyPatterns": ["ready in", "listening on"],
+      "unhealthyPatterns": ["error", "eaddrinuse"],
+      "testCommand": "npm run test",
+      "buildCommand": "npm run build",
+      "autoRestart": true,
+      "watch": ["src/**/*", "package.json"]
+    },
+    {
+      "name": "frontend",
+      "path": "frontend",
+      "command": "npm run dev",
+      "testCommand": "npm run test",
+      "buildCommand": "npm run build"
+    }
+  ],
+  "profiles": {
+    "dev": [
+      {
+        "name": "backend",
+        "path": "backend",
+        "command": "npm run dev",
+        "autoRestart": true,
+        "watch": ["src/**/*", "package.json"]
+      },
+      {
+        "name": "frontend",
+        "path": "frontend",
+        "command": "npm run dev"
+      }
+    ],
+    "debug": [
+      {
+        "name": "backend",
+        "path": "backend",
+        "command": "npm run debug"
+      }
+    ],
+    "production": [
+      {
+        "name": "backend",
+        "path": "backend",
+        "command": "npm run start"
+      },
+      {
+        "name": "frontend",
+        "path": "frontend",
+        "command": "npm run start"
+      }
+    ]
+  }
+}

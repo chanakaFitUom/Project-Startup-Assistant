@@ -1,0 +1,15 @@
+node_modules/
+dist/
+*.vsix
+.DS_Store
+.cursor/
+.cursor/plans/
+*.log
+*.tmp
+*.temp
+*.bak
+*.orig
+agent-transcripts/
+terminals/
+context/
+*.jsonl

@@ -1,0 +1,21 @@
+**/.vscode/**
+**/.cursor/**
+**/.git/**
+**/.github/**
+**/node_modules/**
+Project Startup Assistant/**
+agent-transcripts/**
+terminals/**
+src/**
+tests/**
+context/**
+.cursor/plans/**
+*.jsonl
+*.log
+*.tmp
+*.temp
+*.bak
+*.orig
+tsconfig.json
+vitest.config.ts
+*.ts

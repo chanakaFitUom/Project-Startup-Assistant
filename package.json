@@ -1,0 +1,488 @@
+{
+  "name": "project-startup-assistant",
+  "displayName": "Project Startup Assistant",
+  "description": "Developer-friendly startup assistant for multi-service workspaces: identify projects, select services, diagnose issues, and run everything from one VS Code sidebar.",
+  "version": "0.0.4",
+  "publisher": "unique-skills",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chanakaFitUom/Project-Startup-Assistant.git"
+  },
+  "homepage": "https://github.com/chanakaFitUom/Project-Startup-Assistant",
+  "bugs": {
+    "url": "https://github.com/chanakaFitUom/Project-Startup-Assistant/issues"
+  },
+  "icon": "resources/icon.png",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other",
+    "Programming Languages",
+    "Testing"
+  ],
+  "keywords": [
+    "project startup",
+    "monorepo",
+    "microservices",
+    "devops",
+    "workspace",
+    "service manager",
+    "terminal runner",
+    "node",
+    "typescript",
+    "javascript",
+    "python",
+    "java",
+    "dotnet",
+    "go",
+    "rust",
+    "php",
+    "ruby",
+    "elixir",
+    "docker",
+    "prisma",
+    "nextjs",
+    "vite",
+    "nestjs",
+    "onboarding",
+    "developer assistant",
+    "startup profiles",
+    "workspace diagnostics"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "projectStartup",
+          "title": "Project Startup",
+          "icon": "resources/sidebar-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "projectStartup": [
+        {
+          "id": "projectStartupView",
+          "name": "Project Startup"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "projectStartup.startService",
+        "title": "Project Startup: Start Service",
+        "icon": "$(play)"
+      },
+      {
+        "command": "projectStartup.stopService",
+        "title": "Project Startup: Stop Service",
+        "icon": "$(stop)"
+      },
+      {
+        "command": "projectStartup.restartService",
+        "title": "Project Startup: Restart Service",
+        "icon": "$(debug-restart)"
+      },
+      {
+        "command": "projectStartup.startAll",
+        "title": "Project Startup: Start All",
+        "icon": "$(play-circle)"
+      },
+      {
+        "command": "projectStartup.stopAll",
+        "title": "Project Startup: Stop All",
+        "icon": "$(circle-slash)"
+      },
+      {
+        "command": "projectStartup.restartAll",
+        "title": "Project Startup: Restart All",
+        "icon": "$(debug-restart)"
+      },
+      {
+        "command": "projectStartup.refresh",
+        "title": "Project Startup: Refresh Services",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "projectStartup.openServiceTerminal",
+        "title": "Project Startup: Open Service Terminal",
+        "icon": "$(terminal)"
+      },
+      {
+        "command": "projectStartup.runTests",
+        "title": "Project Startup: Run Tests",
+        "icon": "$(beaker)"
+      },
+      {
+        "command": "projectStartup.buildProject",
+        "title": "Project Startup: Build Project",
+        "icon": "$(tools)"
+      },
+      {
+        "command": "projectStartup.switchProfile",
+        "title": "Project Startup: Switch Profile",
+        "icon": "$(symbol-enum)"
+      },
+      {
+        "command": "projectStartup.restartStopped",
+        "title": "Project Startup: Restart Stopped Services",
+        "icon": "$(history)"
+      },
+      {
+        "command": "projectStartup.customizeUi",
+        "title": "Project Startup: Customize UI",
+        "icon": "$(settings-gear)"
+      },
+      {
+        "command": "projectStartup.manageProfiles",
+        "title": "Project Startup: Manage Profiles",
+        "icon": "$(symbol-enum)"
+      },
+      {
+        "command": "projectStartup.editServiceCommand",
+        "title": "Project Startup: Edit Service Command",
+        "icon": "$(edit)"
+      },
+      {
+        "command": "projectStartup.runQaVerifyAndInstall",
+        "title": "Project Startup: QA Verify And Install VSIX",
+        "icon": "$(rocket)"
+      },
+      {
+        "command": "projectStartup.selectServices",
+        "title": "Project Startup: Select Services To Run",
+        "icon": "$(checklist)"
+      },
+      {
+        "command": "projectStartup.toggleServiceEnabled",
+        "title": "Project Startup: Toggle Service Startup Selection",
+        "icon": "$(check)"
+      },
+      {
+        "command": "projectStartup.addService",
+        "title": "Project Startup: Add Service",
+        "icon": "$(add)"
+      },
+      {
+        "command": "projectStartup.showDetectedProjects",
+        "title": "Project Startup: Show Identified Projects",
+        "icon": "$(list-unordered)"
+      },
+      {
+        "command": "projectStartup.developerAssistant",
+        "title": "Project Startup: Developer Assistant",
+        "icon": "$(lightbulb)"
+      },
+      {
+        "command": "projectStartup.diagnoseWorkspace",
+        "title": "Project Startup: Diagnose Workspace",
+        "icon": "$(warning)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "projectStartup.startAll",
+          "when": "view == projectStartupView",
+          "group": "navigation@1"
+        },
+        {
+          "command": "projectStartup.stopAll",
+          "when": "view == projectStartupView",
+          "group": "navigation@2"
+        },
+        {
+          "command": "projectStartup.refresh",
+          "when": "view == projectStartupView",
+          "group": "navigation@3"
+        },
+        {
+          "command": "projectStartup.manageProfiles",
+          "when": "view == projectStartupView",
+          "group": "navigation@4"
+        },
+        {
+          "command": "projectStartup.selectServices",
+          "when": "view == projectStartupView",
+          "group": "navigation@4.5"
+        },
+        {
+          "command": "projectStartup.addService",
+          "when": "view == projectStartupView",
+          "group": "navigation@4.6"
+        },
+        {
+          "command": "projectStartup.runQaVerifyAndInstall",
+          "when": "view == projectStartupView",
+          "group": "navigation@5"
+        },
+        {
+          "command": "projectStartup.developerAssistant",
+          "when": "view == projectStartupView",
+          "group": "navigation@6"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "projectStartup.startService",
+          "when": "view == projectStartupView && viewItem == service-stopped",
+          "group": "inline@1"
+        },
+        {
+          "command": "projectStartup.stopService",
+          "when": "view == projectStartupView && viewItem == service-running",
+          "group": "inline@2"
+        },
+        {
+          "command": "projectStartup.restartService",
+          "when": "view == projectStartupView && (viewItem == service-running || viewItem == service-stopped)",
+          "group": "inline@3"
+        },
+        {
+          "command": "projectStartup.openServiceTerminal",
+          "when": "view == projectStartupView && (viewItem == service-running || viewItem == service-stopped)",
+          "group": "navigation@1"
+        },
+        {
+          "command": "projectStartup.editServiceCommand",
+          "when": "view == projectStartupView && (viewItem == service-running || viewItem == service-stopped)",
+          "group": "navigation@1.5"
+        },
+        {
+          "command": "projectStartup.toggleServiceEnabled",
+          "when": "view == projectStartupView && (viewItem == service-running || viewItem == service-stopped)",
+          "group": "navigation@1.6"
+        },
+        {
+          "command": "projectStartup.startService",
+          "when": "view == projectStartupView && viewItem == service-stopped",
+          "group": "navigation@2"
+        },
+        {
+          "command": "projectStartup.stopService",
+          "when": "view == projectStartupView && viewItem == service-running",
+          "group": "navigation@3"
+        },
+        {
+          "command": "projectStartup.runTests",
+          "when": "view == projectStartupView && viewItem == utility-run-tests",
+          "group": "inline@1"
+        },
+        {
+          "command": "projectStartup.buildProject",
+          "when": "view == projectStartupView && viewItem == utility-build",
+          "group": "inline@1"
+        },
+        {
+          "command": "projectStartup.startAll",
+          "when": "view == projectStartupView && viewItem == utility-start-all",
+          "group": "inline@1"
+        },
+        {
+          "command": "projectStartup.stopAll",
+          "when": "view == projectStartupView && viewItem == utility-stop-all",
+          "group": "inline@1"
+        },
+        {
+          "command": "projectStartup.restartAll",
+          "when": "view == projectStartupView && viewItem == utility-restart-all",
+          "group": "inline@1"
+        },
+        {
+          "command": "projectStartup.refresh",
+          "when": "view == projectStartupView && viewItem == utility-refresh",
+          "group": "inline@1"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "projectStartup.startService",
+          "when": "workspaceFolderCount > 0"
+        },
+        {
+          "command": "projectStartup.stopService",
+          "when": "workspaceFolderCount > 0"
+        },
+        {
+          "command": "projectStartup.startAll",
+          "when": "workspaceFolderCount > 0"
+        },
+        {
+          "command": "projectStartup.stopAll",
+          "when": "workspaceFolderCount > 0"
+        },
+        {
+          "command": "projectStartup.restartAll",
+          "when": "workspaceFolderCount > 0"
+        },
+        {
+          "command": "projectStartup.refresh",
+          "when": "workspaceFolderCount > 0"
+        },
+        {
+          "command": "projectStartup.switchProfile",
+          "when": "workspaceFolderCount > 0"
+        },
+        {
+          "command": "projectStartup.restartStopped",
+          "when": "workspaceFolderCount > 0"
+        },
+        {
+          "command": "projectStartup.customizeUi",
+          "when": "workspaceFolderCount > 0"
+        },
+        {
+          "command": "projectStartup.manageProfiles",
+          "when": "workspaceFolderCount > 0"
+        },
+        {
+          "command": "projectStartup.editServiceCommand",
+          "when": "workspaceFolderCount > 0"
+        },
+        {
+          "command": "projectStartup.runQaVerifyAndInstall",
+          "when": "workspaceFolderCount > 0"
+        },
+        {
+          "command": "projectStartup.selectServices",
+          "when": "workspaceFolderCount > 0"
+        },
+        {
+          "command": "projectStartup.addService",
+          "when": "workspaceFolderCount > 0"
+        },
+        {
+          "command": "projectStartup.showDetectedProjects",
+          "when": "workspaceFolderCount > 0"
+        },
+        {
+          "command": "projectStartup.developerAssistant",
+          "when": "workspaceFolderCount > 0"
+        },
+        {
+          "command": "projectStartup.diagnoseWorkspace",
+          "when": "workspaceFolderCount > 0"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "projectStartup.startAll",
+        "key": "ctrl+alt+s",
+        "mac": "cmd+alt+s",
+        "when": "workspaceFolderCount > 0"
+      },
+      {
+        "command": "projectStartup.stopAll",
+        "key": "ctrl+alt+x",
+        "mac": "cmd+alt+x",
+        "when": "workspaceFolderCount > 0"
+      },
+      {
+        "command": "projectStartup.refresh",
+        "key": "ctrl+alt+r",
+        "mac": "cmd+alt+r",
+        "when": "workspaceFolderCount > 0"
+      }
+    ],
+    "configuration": {
+      "title": "Project Startup Assistant",
+      "properties": {
+        "projectStartup.defaultProfile": {
+          "type": "string",
+          "default": "",
+          "description": "Optional profile name to use from .devstartup.json when no profile was selected yet."
+        },
+        "projectStartup.ui.showStatusBarButtons": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show Project Startup quick controls in the status bar."
+        },
+        "projectStartup.ui.showStartAllButton": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the Start All status bar button."
+        },
+        "projectStartup.ui.showStopAllButton": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the Stop All status bar button."
+        },
+        "projectStartup.ui.showRefreshButton": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the Refresh status bar button."
+        },
+        "projectStartup.ui.showProfileIndicator": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the active profile indicator in the status bar."
+        },
+        "projectStartup.ui.showUtilitiesSection": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show Utilities section in the Project Startup tree view."
+        },
+        "projectStartup.ui.serviceDetailsMode": {
+          "type": "string",
+          "enum": [
+            "compact",
+            "detailed"
+          ],
+          "default": "compact",
+          "description": "Controls the amount of service metadata shown in each tree row."
+        },
+        "projectStartup.health.defaultHealthyPatterns": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "listening on",
+            "ready in",
+            "server started",
+            "compiled successfully",
+            "running on"
+          ],
+          "description": "Default terminal output patterns that mark services as healthy."
+        },
+        "projectStartup.health.defaultUnhealthyPatterns": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "error",
+            "exception",
+            "eaddrinuse",
+            "failed",
+            "cannot start",
+            "traceback"
+          ],
+          "description": "Default terminal output patterns that mark services as unhealthy."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "npm run compile",
+    "test": "vitest run",
+    "prepackage": "npm run compile",
+    "package": "vsce package --allow-missing-repository --out project-startup-assistant.vsix",
+    "verify": "npm run lint && npm run test && npm run package"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.57",
+    "@types/vscode": "^1.90.0",
+    "@vscode/vsce": "^3.7.1",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
+  }
+}
